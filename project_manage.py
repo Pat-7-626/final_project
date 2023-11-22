@@ -51,13 +51,12 @@ def login():
     return result
 
 
-# define a function called exit
-# here are things to do in this function: write out all the tables that have
-# been modified to the corresponding csv files By now, you know how to read
-# in a csv file and transform it into a list of dictionaries. For this
-# project, you also need to know how to do the reverse, i.e., writing out to
-# a csv file given a list of dictionaries. See the link below for a tutorial
-# on how to do this:
+# define a function called exit here are things to do in this function:
+# write out all the tables that have been modified to the corresponding csv
+# files By now, you know how to read in a csv file and transform it into a
+# list of dictionaries. For this project, you also need to know how to do
+# the reverse, i.e., writing out to a csv file given a list of dictionaries.
+# See the link below for a tutorial on how to do this:
 # https://www.pythonforbeginners.com/basics/list-of-dictionaries-to-csv-in-python
 def exit():
     database.update_csv(my_database.search("persons"),
