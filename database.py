@@ -18,7 +18,7 @@ def csv_path(file_csv):
 
 
 def update_csv(table, key_list):
-    scv_file = open(f"{table.table_name}.csv", 'w')
+    scv_file = open(f"{table.table_name}.csv", 'w', newline="")
     writer = csv.writer(scv_file)
     writer.writerow(key_list)
     for dictionary in table.table:
@@ -91,9 +91,9 @@ class Table:
     def insert(self, dictionary):
         self.table.append(dictionary)
 
-    def update(self, key_of_id, id_val, key_of_value, value):
+    def update(self, id_val, key_of_value, value):
         for i in self.table:
-            if i[key_of_id] == id_val:
+            if i[0] == id_val:
                 i[key_of_value] = value
 
 # modify the code in the Table class so that it supports the insert
