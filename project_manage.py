@@ -14,6 +14,7 @@ def initializing():
     project_csv = database.csv_path("project")
     advisor_pending_request_csv = database.csv_path("advisor_pending_request")
     member_pending_request_csv = database.csv_path("member_pending_request")
+    project_data_csv = database.csv_path("project_data")
 
     # create all the corresponding tables for those csv files
     # see the guide how many tables are needed
@@ -24,6 +25,7 @@ def initializing():
                                              advisor_pending_request_csv)
     member_pending_request = database.Table("member_pending_request",
                                             member_pending_request_csv)
+    project_data = database.Table("project_data", project_data_csv)
 
     # add all these tables to the database
     my_database.insert(persons)
@@ -31,6 +33,7 @@ def initializing():
     my_database.insert(project)
     my_database.insert(advisor_pending_request)
     my_database.insert(member_pending_request)
+    my_database.insert(project_data)
 
 
 # define a function called login
@@ -76,6 +79,10 @@ def exit():
     database.update_csv(my_database.search("member_pending_request"),
                         ["ProjectID", "to_be_member",
                          "Response", "Response_date"])
+    database.update_csv(my_database.search("project_data"),
+                        ["ProjectID", "Title",
+                         "Proposal", "Report",
+                         "Status"])
 
 
 # make calls to the initializing and login functions defined above
