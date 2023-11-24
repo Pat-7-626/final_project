@@ -2,7 +2,7 @@
 
 ___
 
-- An admin
+- ***An admin***
     - Can see and update all information in the database
         - Can update Person table
         - Can update Login table
@@ -22,7 +22,7 @@ ___
 
 ___
 
-- A lead student (*)
+- ***A lead student (+)***
     - Can see a project status
     - Can create, see, and modify a project (creating a project is in student part, before becoming a lead student)
         - Project table needs to be updated
@@ -30,6 +30,10 @@ ___
         - Member_pending_request table needs to be updated
     - Can find and send invitational messages to potential advisors; can only send one invitation at one time and only after finding all the members
         - Member_pending_request table needs to be updated
+    - Can submit a project proposal to an advisor
+        - Project table needs to be updated
+    - Can submit a final project report
+        - Project table needs to be updated
 
     #### if val[1] = 'lead':
 
@@ -40,10 +44,12 @@ ___
   - If finding all potential advisors: display all faculties.
   - If sending invitational messages to potential members: call a function that allows to update a value associated with a key in Advisor_pending_request table
   - If sending invitational messages to potential advisors: call a function that allows to update a value associated with a key in Member_pending_request table (conditions: sent one request at one time -> checking Advisor_pending_request table, must not have any pending -> check in Member_pending_request table)
+  - If submitting a project proposal to an advisor: call a function that allows to update a value associated with a key in Project table (***Evaluate projects***)
+  - If submitting a final project report: call a function that allows to update a value associated with a key in Project table
 
 ___
 
-- A member student (**)
+- ***A member student (++)***
     - Can see and modify a project
         - Project table needs to be updated
     
@@ -55,7 +61,7 @@ ___
 
 ___
 
-- an advisor (***)
+- ***an advisor (+++)***
     - Can see details of a project
         - Can see a project status
     - Get a project proposal from the group project
@@ -83,17 +89,17 @@ ___
 
 ___
 
-- A student
+- ***A student***
     - Can see invitations to be a member from lead students
     - Can accept or deny the invitations
         - Member_pending_request table needs to be updated
         - if accepting; become a member student
           - Project table needs to be updated
-          - Can do all things a member student can do (**)
+          - Can do all things a member student can do ***(++)***
     - Can create a project and become a lead student; must deny all requests first
         - Login table needs to be updated
         - Project table needs to be updated
-        - Can do all things a lead student can do (*)
+        - Can do all things a lead student can do ***(+)***
     
     #### if val[1] = 'student':
 
@@ -105,7 +111,7 @@ ___
 
 ___
 
-- a faculty
+- ***a faculty***
     - Can see details of a project
         - Can see a project status
     - Evaluate projects (in Proposal.md)
@@ -114,7 +120,7 @@ ___
         - Advisor_pending_request table needs to be updated
         - if accepting; become an advisor
             - Project table needs to be updated
-            - Can do all things an advisor can do (***)
+            - Can do all things an advisor can do ***(+++)***
 
     #### if val[1] = 'faculty':
 
@@ -124,3 +130,71 @@ ___
     - If accepting invitations: call a function that allows to update a value associated with a key in Project table, Login table and Advisor_pending_request table (becoming an advisor; call a function that allows to update a value associated with a key in Login table, then go into advisor class)
     - If denying invitations: call a function that allows to update a value associated with a key in Advisor_pending_request table 
     - ***Evaluate projects***
+
+---
+
+# Notes: the tables
+
+---
+
+- ***Person table***
+    - Attributes (or keys):
+        - ID 
+        - First 
+        - Last 
+        - Type
+            - admin
+            - student
+            - faculty
+---
+
+- ***Login table***
+    - Attributes (or keys):
+        - ID
+        - Username
+        - Password
+        - Role
+            - admin
+            - student
+            - lead
+            - member
+            - faculty
+            - advisor
+
+---
+
+- ***Project table***
+    - Attributes (or keys):
+        - ProjectID
+        - Title
+        - Lead
+        - Member1 (optional)
+        - Member2 (optional)
+        - Advisor
+        - Status
+            - has not submitted a proposal
+            - has submitted a proposal; waiting for approving
+            - a proposal is approved
+            - has submitted a project report
+
+---
+
+- ***Advisor_pending_request table***
+    - Attributes (or keys):
+        - ProjectID
+        - to_be_advisor
+        - Response
+            - accepted
+            - denied
+        - Response_date
+
+---
+
+- ***Member_pending_request table***
+    - Attributes (or keys):
+        - ProjectID
+        - to_be_member
+        - Response
+            - accepted
+            - denied
+        - Response Response_date
