@@ -172,10 +172,13 @@ ___
         - Member2 (optional)
         - Advisor
         - Status
-            - has not submitted a proposal
-            - has submitted a proposal; waiting for approving
-            - a proposal is approved
-            - has submitted a project report
+            - has not submitted a project proposal
+            - has submitted a project proposal (waiting for evaluation)
+            - a project proposal evaluation; disapproved
+            - a project proposal evaluation; approved (waiting for a project report)
+            - has submitted a finale project report (waiting for advisor approval)
+            - a finale project report approval; disapproved
+            - a finale project report approval; approved
 
 ---
 
