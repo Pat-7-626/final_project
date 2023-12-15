@@ -1,6 +1,10 @@
 # The roles
 
 ___
+#### edit after consoling with the teacher
+- when members are full, other student will be forced to deny
+- even tho members can modify their project, only a lead student is allowed to submit it into this program
+___
 
 - ***An admin***
     - Can see and update all information in the database
@@ -65,11 +69,6 @@ ___
     - Can approve or deny a final project report approval
         - Project table needs to be updated
         - Project_data table needs to be updated
-    - Can see other invitations to be an advisor from other lead students
-    - Can accept or deny invitations from lead students
-        - Advisor_pending_request table needs to be updated
-        - if accepting; also become an advisor for another project
-            - Project table needs to be updated
     - Evaluate project proposals (***in Proposal.md***)
     
     #### if val[1] = 'advisor':
@@ -77,9 +76,6 @@ ___
     Input what a user wants to do
     - If seeing a project details: display the project dictionary in Project table and Project_data table
     - If approving or disapproving a final project report: call a function that allows to update a value associated with a key in Project table and Project_data table
-    - If seeing invitations: display the invitation from Advisor_pending_request table
-    - If accepting invitations: call a function that allows to update a value associated with a key in Project table and Advisor_pending_request table
-    - If denying invitations: call a function that allows to update a value associated with a key in Advisor_pending_request table 
     - Evaluate projects (***in Proposal.md***)
 
 ___
@@ -187,6 +183,7 @@ ___
         - Response
             - accepted
             - denied
+            - waiting for a response
         - Response_date
 
 ---
@@ -198,6 +195,7 @@ ___
         - Response
             - accepted
             - denied
+            - waiting for a response
         - Response Response_date
 
 ---
@@ -216,3 +214,5 @@ ___
             - has submitted a finale project report (waiting for advisor approval)
             - a finale project report approval; disapproved
             - a finale project report approval; approved
+
+---

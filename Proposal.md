@@ -30,3 +30,7 @@ Note: disapproved and approved are collected in Proposal class that is going to 
 - if disapproved < approved; a project proposal approved; call a function that allows to update a value associated with a key in a Project_data table; update Status
 - if disapproved >= approved; a project proposal disapproved; call a function that allows to update a value associated with a key in a Project_data table; update Status
 
+---
+
+#### edit after consoling with the teacher
+change from making every faculty evaluate to only 3 of each project

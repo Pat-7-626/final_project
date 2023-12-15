@@ -91,10 +91,10 @@ class Table:
     def insert(self, dictionary):
         self.table.append(dictionary)
 
-    def update(self, id_val, key_of_value, value):
+    def update(self, key_id, id_val, key_value, value):
         for i in self.table:
-            if i[0] == id_val:
-                i[key_of_value] = value
+            if i[key_id] == id_val:
+                i[key_value] = value
 
 # modify the code in the Table class so that it supports the insert
 # operation where an entry can be added to a list of dictionary
