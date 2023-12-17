@@ -1,10 +1,6 @@
 # The roles
 
 ___
-#### edit after consoling with the teacher
-- when members are full, other student will be forced to deny
-- even tho members can modify their project, only a lead student is allowed to submit it into this program
-___
 
 - ***An admin***
     - Can see and update all information in the database
@@ -14,6 +10,7 @@ ___
         - Can update Advisor_pending_request table
         - Can update Member_pending_request table
         - Can update Project_data table
+        - Can update Proposal_data table 
 
     #### if val[1] = 'admin':
 
@@ -52,15 +49,12 @@ ___
 ___
 
 - ***A member student (++)***
-    - Can see and modify a project
-        - Project table needs to be updated
-        - Project_data table needs to be updated
+    - Can see and modify a project (even tho members can modify their project, only a lead student is allowed to SUBMIT it into this program)
     
     #### if val[1] = 'member':
 
     Input what a user wants to do
     - If seeing a project details: display the project dictionary in Project table and Project_data table
-    - If modifying a project status: call a function that allows to update a dictionary in Project table or Project_data table or to update a value associated with a key in Project table or Project_data table
 
 ___
 
@@ -82,7 +76,7 @@ ___
 
 - ***A student***
     - Can see invitations to be a member from lead students
-    - Can accept or deny the invitations
+    - Can accept or deny the invitations (when members are full, other student will be forced to deny)
         - Member_pending_request table needs to be updated
         - if accepting; become a member student
           - Project table needs to be updated
@@ -214,5 +208,30 @@ ___
             - has submitted a finale project report (waiting for advisor approval)
             - a finale project report approval; disapproved
             - a finale project report approval; approved
+
+---
+
+- ***Proposal_data table***
+    - Attributes (or keys):
+        - ProjectID
+        - eva_1
+            - waiting for evaluation
+            - disapproved
+            - approved
+        - review_1 (a PDF link)
+        - eva_2
+            - waiting for evaluation
+            - disapproved
+            - approved
+        - review_2 (a PDF link)
+        - eva_3
+            - waiting for evaluation
+            - disapproved
+            - approved
+        - review_3 (a PDF link)
+        - result
+            - waiting for evaluation
+            - disapproved
+            - approved
 
 ---
