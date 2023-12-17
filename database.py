@@ -96,7 +96,25 @@ class Table:
             if i[key_id] == id_val:
                 i[key_value] = value
 
+    def update_two(self, key_id1, id_val1, key_id2, id_val2,
+                   key_value1, value1, key_value2, value2):
+        for i in self.table:
+            if (i[key_id1] == id_val1) and (i[key_id2] == id_val2):
+                i[key_value1] = value1
+                i[key_value2] = value2
+
+    def update_three(self, key_id1, id_val1, key_id2, id_val2,
+                     key_id3, id_val3, key_value1, value1, key_value2,
+                     value2):
+        for i in self.table:
+            if ((i[key_id1] == id_val1)
+                    and (i[key_id2] == id_val2)
+                    and (i[key_id3] == id_val3)):
+                i[key_value1] = value1
+                i[key_value2] = value2
+
 # modify the code in the Table class so that it supports the insert
 # operation where an entry can be added to a list of dictionary
+
 # modify the code in the Table class so that it supports the update
 # operation where an entry's value associated with a key can be updated
