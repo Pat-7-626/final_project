@@ -13,24 +13,23 @@
 
 #### A lead student user submits a project proposal
 - input a project proposal (a PDF link)
-- call a function that allows to update a value associated with a key in a Project_data table; update Proposal and Status
+- call a function that allows to update a value associated with a key in Project and Project_data table; update Proposal and Status
+- call a function that allows to update a dictionary in Proposal_data table
 
 ---
 
 #### A faculty user evaluates a project proposal
 - display a project proposal from Project_data table (a PDF link)
-- if disapproved; disapproved += 1
-- if approved; approved += 1 
+- if disapproved; pass
+- if approved; number += 1 
+- call a function that allows to update a value associated with a key in Proposal_data table
 
-Note: disapproved and approved are collected in Proposal class that is going to be created
+Note: disapproved and approved are collected in Proposal_data table
 
 ---
 
 #### When every faculty users has evaluated a certain project proposal
-- if disapproved < approved; a project proposal approved; call a function that allows to update a value associated with a key in a Project_data table; update Status
-- if disapproved >= approved; a project proposal disapproved; call a function that allows to update a value associated with a key in a Project_data table; update Status
+- if number >= 2; a project proposal approved; call a function that allows to update a value associated with a key in Project and Project_data table; update Status, in a Proposal_data table; update result
+- else; a project proposal disapproved; call a function that allows to update a value associated with a key in Project and Project_data table; update Status, in a Proposal_data table; update result
 
 ---
-
-#### edit after consoling with the teacher
-change from making every faculty evaluate to only 3 of each project
